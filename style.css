@@ -414,6 +414,265 @@ h1 {
     }
 }
 
+/* DORITOS RAIN */
+.dorito {
+    position: fixed;
+    width: 80px;
+    height: auto;
+    animation: doritoRain 4s linear infinite;
+    pointer-events: none;
+    z-index: 5;
+    filter: drop-shadow(0 0 15px #ff6600) drop-shadow(0 0 30px #ffaa00);
+}
+
+.dorito-1 { left: 10%; animation-delay: 0s; }
+.dorito-2 { left: 30%; animation-delay: 0.8s; }
+.dorito-3 { left: 50%; animation-delay: 1.6s; }
+.dorito-4 { left: 70%; animation-delay: 2.4s; }
+.dorito-5 { left: 90%; animation-delay: 3.2s; }
+
+@keyframes doritoRain {
+    0% {
+        top: -10%;
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        transform: rotate(720deg) scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+/* HIT MARKER */
+.hit-marker {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    filter: drop-shadow(0 0 20px #ff0000) drop-shadow(0 0 40px #ffffff);
+}
+
+.hit-marker-active {
+    animation: hitMarker 0.3s ease-out;
+}
+
+@keyframes hitMarker {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) rotate(-90deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8) rotate(90deg);
+    }
+}
+
+/* ILLUMINATI */
+.illuminati {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: auto;
+    animation: illuminatiFloat 4s ease-in-out infinite, illuminatiRotate 10s linear infinite;
+    pointer-events: none;
+    z-index: 10;
+    filter: drop-shadow(0 0 30px #ffff00) drop-shadow(0 0 50px #ffaa00) brightness(1.2);
+}
+
+@keyframes illuminatiFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-30px) scale(1.1); }
+}
+
+@keyframes illuminatiRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* DEAL WITH IT */
+.deal-with-it {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 250px;
+    height: auto;
+    animation: slideInDeal 3s ease-out infinite;
+    pointer-events: none;
+    z-index: 10;
+    filter: drop-shadow(0 0 20px #000000) drop-shadow(0 0 10px #ffffff);
+}
+
+@keyframes slideInDeal {
+    0% {
+        transform: translateX(-300%) rotate(-20deg) scale(0.5);
+        opacity: 0;
+    }
+    30% {
+        transform: translateX(0) rotate(0deg) scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: translateX(0) rotate(0deg) scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-300%) rotate(20deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* SAMPLE TEXT */
+.sample-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        0 0 50px #ffff00;
+    animation: sampleTextPulse 2s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 8;
+    opacity: 0.3;
+}
+
+@keyframes sampleTextPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.4;
+    }
+}
+
+/* AIRHORN BUTTON */
+.airhorn-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 25px 60px;
+    font-size: 3em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0000, #ff00ff, #00ffff);
+    background-size: 200% 200%;
+    color: white;
+    border: 5px solid #ffff00;
+    border-radius: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    animation: buttonPulse 1s ease-in-out infinite;
+    box-shadow: 
+        0 0 30px #ff00ff,
+        0 0 60px #00ffff,
+        inset 0 0 20px rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.airhorn-btn:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 
+        0 0 60px #ff00ff,
+        0 0 120px #00ffff,
+        inset 0 0 40px rgba(255,255,255,0.5);
+}
+
+.airhorn-btn:active {
+    transform: scale(0.95);
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        background-position: 0% 50%;
+        transform: scale(1);
+    }
+    50% {
+        background-position: 100% 50%;
+        transform: scale(1.05);
+    }
+}
+
+/* WOMBO COMBO */
+.wombo-combo {
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6em;
+    font-weight: bold;
+    color: #ffff00;
+    text-shadow: 
+        -3px -3px 0 #ff0000,
+        3px -3px 0 #ff0000,
+        -3px 3px 0 #ff0000,
+        3px 3px 0 #ff0000,
+        0 0 30px #ff00ff;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.wombo-active {
+    animation: womboCombo 1.5s ease-out;
+}
+
+@keyframes womboCombo {
+    0% {
+        top: -200px;
+        opacity: 0;
+        transform: translateX(-50%) scale(0) rotate(-45deg);
+    }
+    30% {
+        top: 30%;
+        opacity: 1;
+        transform: translateX(-50%) scale(1.5) rotate(5deg);
+    }
+    70% {
+        top: 30%;
+        opacity: 1;
+        transform: translateX(-50%) scale(1.5) rotate(-5deg);
+    }
+    100% {
+        top: 120%;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5) rotate(45deg);
+    }
+}
+
+/* MLG ITEMS */
+.mlg-item {
+    background: linear-gradient(90deg, rgba(255,100,0,0.4), rgba(255,200,0,0.4)) !important;
+    border-left: 5px solid #ff6600 !important;
+    font-weight: bold;
+    animation: mlgItemGlow 2s ease-in-out infinite !important;
+}
+
+@keyframes mlgItemGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px #ff6600;
+    }
+    50% {
+        box-shadow: 0 0 30px #ff6600, 0 0 50px #ffff00;
+    }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     h1 {
@@ -435,5 +694,30 @@ h1 {
     
     .mlg-footer p {
         font-size: 2em;
+    }
+    
+    .airhorn-btn {
+        font-size: 2em;
+        padding: 20px 40px;
+    }
+    
+    .illuminati {
+        width: 100px;
+    }
+    
+    .deal-with-it {
+        width: 150px;
+    }
+    
+    .dorito {
+        width: 50px;
+    }
+    
+    .hit-marker {
+        width: 100px;
+    }
+    
+    .sample-text {
+        font-size: 4em;
     }
 }

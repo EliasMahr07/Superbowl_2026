@@ -142,3 +142,108 @@ document.head.appendChild(style);
 console.log('%c🔥 MLG MODE ACTIVATED 🔥', 'font-size: 30px; color: #ff0000; text-shadow: 0 0 10px #00ff00; font-weight: bold;');
 console.log('%cSUPER BOWL LX SHOPPING LIST ULTRA EXTREME EDITION', 'font-size: 20px; color: #00ffff; font-weight: bold;');
 console.log('%c💥💥💥 LETS GOOOOOO 💥💥💥', 'font-size: 25px; color: #ffff00; text-shadow: 0 0 10px #ff00ff; font-weight: bold;');
+
+// MLG AIRHORN FUNCTION
+function triggerMLGMoment() {
+    // Screen shake
+    document.body.style.animation = 'screenShake 0.5s';
+    setTimeout(() => {
+        document.body.style.animation = '';
+    }, 500);
+    
+    // Hit marker
+    const hitMarker = document.querySelector('.hit-marker');
+    hitMarker.classList.add('hit-marker-active');
+    setTimeout(() => {
+        hitMarker.classList.remove('hit-marker-active');
+    }, 300);
+    
+    // Wombo combo text
+    const wombo = document.querySelector('.wombo-combo');
+    wombo.classList.add('wombo-active');
+    setTimeout(() => {
+        wombo.classList.remove('wombo-active');
+    }, 1500);
+    
+    // Create multiple explosions
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            createRandomExplosion();
+        }, i * 100);
+    }
+    
+    // Create extra doritos
+    for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+            createDorito();
+        }, i * 50);
+    }
+    
+    // Lens flare burst
+    for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+            createLensFlare();
+        }, i * 200);
+    }
+    
+    // Console airhorn
+    console.log('%c🎺🎺🎺 AIRHORN!!! 🎺🎺🎺', 'font-size: 50px; color: #ff0000; font-weight: bold; text-shadow: 0 0 20px #ffff00;');
+}
+
+function createRandomExplosion() {
+    const explosion = document.createElement('div');
+    explosion.style.position = 'fixed';
+    explosion.style.left = Math.random() * 100 + '%';
+    explosion.style.top = Math.random() * 100 + '%';
+    explosion.style.width = '200px';
+    explosion.style.height = '200px';
+    explosion.style.borderRadius = '50%';
+    explosion.style.background = 'radial-gradient(circle, rgba(255,255,0,0.9), rgba(255,100,0,0.7), transparent)';
+    explosion.style.transform = 'translate(-50%, -50%) scale(0)';
+    explosion.style.pointerEvents = 'none';
+    explosion.style.zIndex = '9998';
+    explosion.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-out';
+    explosion.style.opacity = '1';
+    
+    document.body.appendChild(explosion);
+    
+    setTimeout(() => {
+        explosion.style.transform = 'translate(-50%, -50%) scale(2)';
+        explosion.style.opacity = '0';
+    }, 10);
+    
+    setTimeout(() => {
+        explosion.remove();
+    }, 500);
+}
+
+function createDorito() {
+    const dorito = document.createElement('img');
+    dorito.src = 'images/dorito.png';
+    dorito.style.position = 'fixed';
+    dorito.style.left = Math.random() * 100 + '%';
+    dorito.style.top = '-100px';
+    dorito.style.width = (60 + Math.random() * 60) + 'px';
+    dorito.style.pointerEvents = 'none';
+    dorito.style.zIndex = '5';
+    dorito.style.filter = 'drop-shadow(0 0 15px #ff6600) drop-shadow(0 0 30px #ffaa00)';
+    
+    const animation = dorito.animate([
+        { 
+            transform: 'translateY(0) rotate(0deg)', 
+            opacity: 1 
+        },
+        { 
+            transform: `translateY(${window.innerHeight + 150}px) rotate(${720 + Math.random() * 360}deg)`, 
+            opacity: 0.9 
+        }
+    ], {
+        duration: 3000 + Math.random() * 2000,
+        easing: 'linear'
+    });
+    
+    document.body.appendChild(dorito);
+    
+    animation.onfinish = () => dorito.remove();
+}
+
